@@ -49,3 +49,4 @@ dwsync.xml
 
 # NPM stuff
 node_modules
+npm-debug.log
