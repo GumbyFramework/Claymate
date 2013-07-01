@@ -35,7 +35,7 @@ var argv = require('optimist')
 // Handle the subcommands
 switch (argv._[0]) {
 	case 'build':
-		Claymate.build(getArg('modules', 'array'), getArg('path'));
+		Claymate.build(getArg('modules', 'build', 'array'), getArg('path', 'build'));
 		break;
 }
 
@@ -44,12 +44,12 @@ switch (argv._[0]) {
  * @param  {String} arg Which argument to retrieve
  * @return {mixed} The value
  */
-function getArg(arg, type) {
+function getArg(arg, subcommand, type) {
 
 	if (argv[arg]) {
 		return (type === 'array') ? argv[arg].split(',') : argv[arg];
-	} else if (JSONConfig[arg]) {
-		return JSONConfig[arg];
+	} else if (JSONConfig[subcommand][arg]) {
+		return JSONConfig[subcommand][arg];
 	} else {
 		return null;
 	}
