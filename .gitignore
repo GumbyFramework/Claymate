@@ -46,3 +46,7 @@ dwsync.xml
 .svn
 .CVS
 .idea
+
+# NPM stuff
+node_modules
+npm-debug.log
