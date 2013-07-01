@@ -2,17 +2,38 @@
 
 Claymate is an optional helper script that wraps common tasks related specifically to gumby for ease of use.
 
-##Comands
-
-Here are short descriptions of the commands available. Use the command without any arguments (`$ claymate`) to see full details.
-
-- `build` - Concatenates and minifies all gumby javascript assets in the proper order utilizing [uglify-js](https://github.com/mishoo/UglifyJS2). Accepts further options to specify which modules to include.
-
 ##Installation
 
 Use [npm](https://npmjs.org/) to install claymate globally or locally:
 
 	npm [-g] install claymate
+
+
+##Configuration
+
+All command line options for a given subcommand can be set in a JSON configuration file called `gumby.json`, typically located at the root of your project. 
+
+> Note that claymate will look for this file in the directory in which you run claymate, so keeping it in the root of the project is not a requirement. 
+
+As an example, the following command:
+
+	$ claymate build --path public_html --modules fittext,retina
+	
+Is equivalent to running `$ claymate build` with the following JSON in `gumby.json`:
+
+	{
+		"build": {
+			"modules": ["fittext", "retina"],
+			"path": "public_html"
+		}
+	}
+
+
+##Comands
+
+Here are short descriptions of the commands available. Use the command without any arguments (`$ claymate`) to see full details.
+
+- `build` - Concatenates and minifies all gumby javascript assets in the proper order utilizing [uglify-js](https://github.com/mishoo/UglifyJS2). Accepts further options to specify which modules to include.
 
 ##License
 
