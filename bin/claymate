@@ -11,7 +11,9 @@ var usage =
 "$0 [subcommand] [arguments]\n\
 \n\
 Use one of the following subcommands:\n\
-	build - Build concatenated and minified gumby scripts and its source map.\n\
+  build - Concatenate and minify the core gumby scripts and its source map.\n\
+\n\
+The options below will have which subcommand(s) they apply to in brackets before the description.\n\
 ";
 
 // Set up argument parsing
@@ -19,10 +21,10 @@ var argv = require('optimist')
 	// Usage information
 	.usage(usage)
 	// Options specific to [build]
-	.describe('modules', 'Which modules to include in the build.')
+	.describe('modules', '[build] Which modules to include in the build.')
 	.alias('modules', 'm')
 	// Generic
-	.describe('path', 'Which path to look for gumby in.')
+	.describe('path', '[build] Which path to look for gumby in.')
 	.alias('path', 'p')
 	// Require a subcommand at least
 	.demand(1)
