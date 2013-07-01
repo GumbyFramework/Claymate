@@ -4,7 +4,9 @@ Claymate is an optional helper script that wraps common tasks related specifical
 
 ##Comands
 
-- `build` - Concatenates and minifies all gumby javascript assets in the proper order utilizing [uglify-js](https://github.com/mishoo/UglifyJS2).
+Here are short descriptions of the commands available. Use the command without any arguments (`$ claymate`) to see full details.
+
+- `build` - Concatenates and minifies all gumby javascript assets in the proper order utilizing [uglify-js](https://github.com/mishoo/UglifyJS2). Accepts further options to specify which modules to include.
 
 ##Installation
 
