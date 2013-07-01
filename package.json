@@ -13,6 +13,9 @@
     "type": "git",
     "url": "https://github.com/GumbyFramework/Claymate.git"
   },
+  "bugs": {
+    "url": "https://github.com/GumbyFramework/Claymate/issues"
+  },
   "author": "Digital Surgeons",
   "license": "MIT",
   "dependencies": {
