@@ -24,6 +24,8 @@ var argv = require('optimist')
 	// Generic
 	.describe('path', 'Which path to look for gumby in.')
 	.alias('path', 'p')
+	// Require a subcommand at least
+	.demand(1)
 	// That's it!
 	.wrap(80)
 	.argv;
