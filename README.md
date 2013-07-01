@@ -1,17 +1,17 @@
 #Claymate
 
-Claymate is an optional helper script that wraps common tasks related specifically to gumby for ease of use. 
+Claymate is an optional helper script that wraps common tasks related specifically to gumby for ease of use.
 
 ##Comands
 
-- `build` - Concatenates and minifies all gumby javascript assets in the proper order utilizing [uglify-js](https://github.com/mishoo/UglifyJS).
+- `build` - Concatenates and minifies all gumby javascript assets in the proper order utilizing [uglify-js](https://github.com/mishoo/UglifyJS2).
 
 ##Installation
 
 Use [npm](https://npmjs.org/) to install claymate globally or locally:
 
 	npm [-g] install claymate
-	
+
 ##License
 
 The MIT License (MIT)
