@@ -1,0 +1,21 @@
+{
+  "name": "claymate",
+  "version": "0.0.0",
+  "description": "Official helper scripts for the Gumby responsive framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gumby"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GumbyFramework/Claymate.git"
+  },
+  "author": "Digital Surgeons",
+  "license": "MIT",
+  "dependencies": {
+    "uglify-js": "~2.3.6"
+  }
+}
