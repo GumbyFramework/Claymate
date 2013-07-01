@@ -3,3 +3,51 @@
 
 "use strict";
 
+// Grab claymate library.
+var Claymate = require('../lib/claymate.js'),
+	JSONConfig = Claymate.getJSONConfig();
+
+var usage =
+"$0 [subcommand] [arguments]\n\
+\n\
+Use one of the following subcommands:\n\
+	build - Build concatenated and minified gumby scripts and its source map.\n\
+";
+
+// Set up argument parsing
+var argv = require('optimist')
+	// Usage information
+	.usage(usage)
+	// Options specific to [build]
+	.describe('modules', 'Which modules to include in the build.')
+	.alias('modules', 'm')
+	// Generic
+	.describe('path', 'Which path to look for gumby in.')
+	.alias('path', 'p')
+	// That's it!
+	.wrap(80)
+	.argv;
+
+// Handle the subcommands
+switch (argv._[0]) {
+	case 'build':
+		Claymate.build(getArg('modules'), getArg('path'));
+		break;
+}
+
+/**
+ * Grabs value from cli argument, then json config, then null
+ * @param  {String} arg Which argument to retrieve
+ * @return {mixed} The value
+ */
+function getArg(arg) {
+
+	if (argv[arg]) {
+		return (typeof argv[arg] === 'array') ? argv[arg].split(',') : argv[arg];
+	} else if (JSONConfig[arg]) {
+		return JSONConfig[arg];
+	} else {
+		return null;
+	}
+
+}
