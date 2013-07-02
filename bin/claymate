@@ -50,6 +50,8 @@ function getArg(arg, subcommand, type) {
 
 	if (argv[arg]) {
 		return (type === 'array') ? argv[arg].split(',') : argv[arg];
+	} else if (typeof JSONConfig[arg] !== 'undefined') {
+		return JSONConfig[arg];
 	} else if (
 		typeof JSONConfig[subcommand] !== 'undefined' &&
 		typeof JSONConfig[subcommand][arg] !== 'undefined'
