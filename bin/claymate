@@ -23,11 +23,11 @@ var argv = require('optimist')
 	// Options specific to [build]
 	.describe('modules', '[build] Which modules to include in the build. If omitted, defaults to all modules.')
 	.alias('modules', 'm')
-	.describe('out', '[build] Where to write the minified and sourcemap files. If omitted, defaults to current directory.')
-	.alias('out', 'o')
+	.describe('outPath', '[build] Where to write the minified and sourcemap files. If omitted, defaults to current directory.')
+	.alias('outPath', 'o')
 	// Generic
 	.describe('gumbyPath', '[build] Which path to look for gumby in.')
-	.alias('gumbyPath', 'p')
+	.alias('gumbyPath', 'g')
 	// Require a subcommand at least
 	.demand(1)
 	// That's it!
@@ -37,7 +37,7 @@ var argv = require('optimist')
 // Handle the subcommands
 switch (argv._[0]) {
 	case 'build':
-		Claymate.build(getArg('modules', 'build', 'array'), getArg('gumbyPath', 'build'), getArg('out', 'build'));
+		Claymate.build(getArg('modules', 'build', 'array'), getArg('gumbyPath', 'build'), getArg('outPath', 'build'));
 		break;
 }
 
