@@ -20,14 +20,24 @@ The options below will have which subcommand(s) they apply to in brackets before
 var argv = require('optimist')
 	// Usage information
 	.usage(usage)
+
 	// Options specific to [build]
-	.describe('modules', '[build] Which modules to include in the build.')
+	.describe('modules', '[build] Which modules to include in the build, comma separated. If omitted, defaults to all modules.')
 	.alias('modules', 'm')
+
+	.describe('extraModules', '[build] A comma separated list of paths to additional non-core gumby module files.')
+	.alias('extraModules', 'e')
+
+	.describe('outPath', '[build] Where to write the minified and sourcemap files. If omitted, defaults to current directory.')
+	.alias('outPath', 'o')
+
 	// Generic
-	.describe('path', '[build] Which path to look for gumby in.')
-	.alias('path', 'p')
+	.describe('gumbyPath', '[build] Which path to look for gumby in.')
+	.alias('gumbyPath', 'g')
+
 	// Require a subcommand at least
 	.demand(1)
+
 	// That's it!
 	.wrap(80)
 	.argv;
@@ -35,7 +45,7 @@ var argv = require('optimist')
 // Handle the subcommands
 switch (argv._[0]) {
 	case 'build':
-		Claymate.build(getArg('modules', 'build', 'array'), getArg('path', 'build'));
+		Claymate.build(getArg('modules', 'build', 'array'), getArg('extraModules', 'build', 'array'), getArg('gumbyPath', 'build'), getArg('outPath', 'build'));
 		break;
 }
 
@@ -48,7 +58,12 @@ function getArg(arg, subcommand, type) {
 
 	if (argv[arg]) {
 		return (type === 'array') ? argv[arg].split(',') : argv[arg];
-	} else if (JSONConfig[subcommand][arg]) {
+	} else if (typeof JSONConfig[arg] !== 'undefined') {
+		return JSONConfig[arg];
+	} else if (
+		typeof JSONConfig[subcommand] !== 'undefined' &&
+		typeof JSONConfig[subcommand][arg] !== 'undefined'
+	) {
 		return JSONConfig[subcommand][arg];
 	} else {
 		return null;

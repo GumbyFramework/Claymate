@@ -1,6 +1,8 @@
 #Claymate
 
-Claymate is an optional helper script that wraps common tasks related specifically to gumby for ease of use.
+Claymate is an optional helper script that wraps common tasks related specifically to [Gumby Framework](https://github.com/GumbyFramework/Gumby) for ease of use.
+
+> Note that this project is currently in alpha state and changes to options and functionality are in constant flux until official release.
 
 ##Installation
 
@@ -8,6 +10,12 @@ Use [npm](https://npmjs.org/) to install claymate globally or locally:
 
 	npm [-g] install claymate
 
+
+##Comands
+
+Here are short descriptions of the commands available. Use the command without any arguments (`$ claymate`) to see full details.
+
+- `build` - Concatenates and minifies all gumby javascript assets in the proper order utilizing [uglify-js](https://github.com/mishoo/UglifyJS2). Accepts further options to specify which modules to include.
 
 ##Configuration
 
@@ -17,23 +25,21 @@ All command line options for a given subcommand can be set in a JSON configurati
 
 As an example, the following command:
 
-	$ claymate build --path public_html --modules fittext,retina
+	$ claymate build --gumbyPath public_html \
+		--outPath public_html/js \
+		--modules fittext,retina \
+		--extraModules public_html/gumby-parallax/gumby.parallax.js
 	
 Is equivalent to running `$ claymate build` with the following JSON in `gumby.json`:
 
 	{
 		"build": {
 			"modules": ["fittext", "retina"],
-			"path": "public_html"
+			"gumbyPath": "public_html",
+			"outPath": "public_html/js",
+			"extraModules": ["public_html/gumby-parallax/gumby.parallax.js"]
 		}
 	}
-
-
-##Comands
-
-Here are short descriptions of the commands available. Use the command without any arguments (`$ claymate`) to see full details.
-
-- `build` - Concatenates and minifies all gumby javascript assets in the proper order utilizing [uglify-js](https://github.com/mishoo/UglifyJS2). Accepts further options to specify which modules to include.
 
 ##License
 
