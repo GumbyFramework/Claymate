@@ -45,7 +45,7 @@ var argv = require('optimist')
 // Handle the subcommands
 switch (argv._[0]) {
 	case 'build':
-		Claymate.build(getArg('modules', 'build', 'array'), getArg('extraModules', 'build'), getArg('gumbyPath', 'build'), getArg('outPath', 'build'));
+		Claymate.build(getArg('modules', 'build', 'array'), getArg('extraModules', 'build', 'array'), getArg('gumbyPath', 'build'), getArg('outPath', 'build'));
 		break;
 }
 
