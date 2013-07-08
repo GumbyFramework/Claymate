@@ -15,13 +15,13 @@ Use [npm](https://npmjs.org/) to install claymate globally or locally:
 
 Here are short descriptions of the commands available. Use the command without any arguments (`$ claymate`) to see full details.
 
-- `build` - Concatenates and minifies all gumby javascript assets in the proper order utilizing [uglify-js](https://github.com/mishoo/UglifyJS2). Accepts further options to specify which modules to include.
+- `build` - Concatenates and minifies all gumby javascript assets in the proper order utilizing [uglify-js](https://github.com/mishoo/UglifyJS2). Accepts further options to specify which modules to include. By default, this will look for the gumby files starting from the current directory, and output them to the current directory. You will have to specify the path to gumby or desired output path if they are different. Furthermore, a sourcemap can be built to accompany the minified file.
 
 ##Configuration
 
-All command line options for a given subcommand can be set in a JSON configuration file called `gumby.json`, typically located at the root of your project. 
+All command line options for a given subcommand can be set in a JSON configuration file called `gumby.json`, typically located at the root of your project.
 
-> Note that claymate will look for this file in the directory in which you run claymate, so keeping it in the root of the project is not a requirement. 
+> Note that claymate will look for this file in the directory in which you run claymate, so keeping it in the root of the project is not a requirement.
 
 As an example, the following command:
 
@@ -29,7 +29,7 @@ As an example, the following command:
 		--outPath public_html/js \
 		--modules fittext,retina \
 		--extraModules public_html/gumby-parallax/gumby.parallax.js
-	
+
 Is equivalent to running `$ claymate build` with the following JSON in `gumby.json`:
 
 	{
