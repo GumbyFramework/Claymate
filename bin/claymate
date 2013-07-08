@@ -28,6 +28,10 @@ var argv = require('optimist')
 	.describe('extraModules', '[build] A comma separated list of paths to additional non-core gumby module files.')
 	.alias('extraModules', 'e')
 
+	.describe('buildSourceMap', '[build] Boolean flag, pass it to build the sourcemap.')
+	.boolean('buildSourceMap')
+	.alias('buildSourceMap', 's')
+
 	.describe('outPath', '[build] Where to write the minified and sourcemap files. If omitted, defaults to current directory.')
 	.alias('outPath', 'o')
 
@@ -45,7 +49,7 @@ var argv = require('optimist')
 // Handle the subcommands
 switch (argv._[0]) {
 	case 'build':
-		Claymate.build(getArg('modules', 'build', 'array'), getArg('extraModules', 'build', 'array'), getArg('gumbyPath', 'build'), getArg('outPath', 'build'));
+		Claymate.build(getArg('modules', 'build', 'array'), getArg('extraModules', 'build', 'array'), getArg('gumbyPath', 'build'), getArg('outPath', 'build'), getArg('buildSourceMap', 'build'));
 		break;
 }
 
