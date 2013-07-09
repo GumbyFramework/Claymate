@@ -11,9 +11,10 @@ var usage =
 "$0 [subcommand] [arguments]\n\
 \n\
 Use one of the following subcommands:\n\
-  build - Concatenate and minify the core gumby scripts and its source map.\n\
+  build - Concatenate and minify the core gumby scripts.\n\
 \n\
-The options below will have which subcommand(s) they apply to in brackets before the description.\n\
+The options below will have which subcommand(s) they apply to in brackets\n\
+before the description.\n\
 ";
 
 // Set up argument parsing
@@ -27,6 +28,10 @@ var argv = require('optimist')
 
 	.describe('extraModules', '[build] A comma separated list of paths to additional non-core gumby module files.')
 	.alias('extraModules', 'e')
+
+	.describe('buildSourceMap', '[build] Boolean flag, pass it to build the sourcemap.')
+	.boolean('buildSourceMap')
+	.alias('buildSourceMap', 's')
 
 	.describe('outPath', '[build] Where to write the minified and sourcemap files. If omitted, defaults to current directory.')
 	.alias('outPath', 'o')
@@ -45,7 +50,17 @@ var argv = require('optimist')
 // Handle the subcommands
 switch (argv._[0]) {
 	case 'build':
-		Claymate.build(getArg('modules', 'build', 'array'), getArg('extraModules', 'build', 'array'), getArg('gumbyPath', 'build'), getArg('outPath', 'build'));
+
+		var buildOpts = {
+			gumbyPath: getArg('gumbyPath', 'build'),
+			outPath: getArg('outPath', 'build'),
+			modules: getArg('modules', 'build', 'array'),
+			extraModules: getArg('extraModules', 'build', 'array'),
+			includeSourceMap: getArg('buildSourceMap', 'build')
+		};
+
+		Claymate.build(buildOpts);
+
 		break;
 }
 
