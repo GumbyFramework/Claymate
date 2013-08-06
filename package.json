@@ -24,6 +24,7 @@
     "uglify-js": "~2.3.6",
     "bower": "~1.0.0",
     "cheerio": "~0.12.1",
-    "optimist": "~0.6.0"
+    "optimist": "~0.6.0",
+    "wrench": "~1.5.1"
   }
 }
