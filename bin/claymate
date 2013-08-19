@@ -29,6 +29,9 @@ var argv = require('optimist')
 	.describe('extraModules', '[build] A comma separated list of paths to additional non-core gumby module files.')
 	.alias('extraModules', 'e')
 
+	.describe('extraFiles', '[build] A comma separated list of paths to additional non-module files.')
+	.alias('extraFiles', 'f')
+
 	.describe('buildSourceMap', '[build] Boolean flag, pass it to build the sourcemap.')
 	.boolean('buildSourceMap')
 	.alias('buildSourceMap', 's')
@@ -56,6 +59,7 @@ switch (argv._[0]) {
 			outPath: getArg('outPath', 'build'),
 			modules: getArg('modules', 'build', 'array'),
 			extraModules: getArg('extraModules', 'build', 'array'),
+			extraFiles: getArg('extraFiles', 'build', 'array'),
 			includeSourceMap: getArg('buildSourceMap', 'build')
 		};
 
