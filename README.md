@@ -2,8 +2,6 @@
 
 Claymate is an optional helper script that wraps common tasks related specifically to [Gumby Framework](https://github.com/GumbyFramework/Gumby) for ease of use.
 
-> Note that this project is currently in alpha state and changes to options and functionality are in constant flux until official release.
-
 ##Installation
 
 Use [npm](https://npmjs.org/) to install claymate globally or locally:
