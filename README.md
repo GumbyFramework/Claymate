@@ -16,6 +16,7 @@ Use [npm](https://npmjs.org/) to install claymate globally or locally:
 Here are short descriptions of the commands available. Use the command without any arguments (`$ claymate`) to see full details.
 
 - `build` - Concatenates and minifies all gumby javascript assets in the proper order utilizing [uglify-js](https://github.com/mishoo/UglifyJS2). Accepts further options to specify which modules to include. By default, this will look for the gumby files starting from the current directory, and output them to the current directory. You will have to specify the path to gumby or desired output path if they are different. Furthermore, a sourcemap can be built to accompany the minified file.
+- `install` - Builds a scaffold for you application with the reccomended setup. Run this in an empty directory, located at the document root for your project.
 
 ##Configuration
 

@@ -12,6 +12,7 @@ var usage =
 \n\
 Use one of the following subcommands:\n\
   build - Concatenate and minify the core gumby scripts.\n\
+  install - Creates a scaffold for your application with the reccomended setup.\n\
 \n\
 The options below will have which subcommand(s) they apply to in brackets\n\
 before the description.\n\
