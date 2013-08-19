@@ -66,6 +66,17 @@ switch (argv._[0]) {
 		Claymate.build(buildOpts);
 
 		break;
+
+	case 'install':
+
+		var installOpts = {
+
+		};
+
+		Claymate.install(installOpts);
+
+		break;
+
 }
 
 /**
