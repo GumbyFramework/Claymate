@@ -41,9 +41,13 @@ var argv = require('optimist')
 	.describe('outPath', '[build] Where to write the minified and sourcemap files. If omitted, defaults to current directory.')
 	.alias('outPath', 'o')
 
-	// Generic
 	.describe('gumbyPath', '[build] Which path to look for gumby in.')
 	.alias('gumbyPath', 'g')
+
+	// Generic
+	.describe('quiet', '[build,install] Supresses non-error messages.')
+	.boolean('quiet')
+	.alias('quiet', 'q')
 
 	// Require a subcommand at least
 	.demand(1)
@@ -62,7 +66,8 @@ switch (argv._[0]) {
 			modules: getArg('modules', 'build', 'array'),
 			addons: getArg('addons', 'build', 'array'),
 			files: getArg('files', 'build', 'array'),
-			buildSourceMap: getArg('buildSourceMap', 'build')
+			buildSourceMap: getArg('buildSourceMap', 'build'),
+			quiet: getArg('quiet', 'build')
 		};
 
 		Claymate.build(buildOpts);
@@ -72,7 +77,7 @@ switch (argv._[0]) {
 	case 'install':
 
 		var installOpts = {
-
+			quiet: getArg('quiet', 'install')
 		};
 
 		Claymate.install(installOpts);
