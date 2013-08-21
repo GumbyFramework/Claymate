@@ -27,11 +27,12 @@ var argv = require('optimist')
 	.describe('modules', '[build] Which modules to include in the build, comma separated. If omitted, defaults to all modules.')
 	.alias('modules', 'm')
 
-	.describe('extraModules', '[build] A comma separated list of paths to additional non-core gumby module files.')
-	.alias('extraModules', 'e')
+	.describe('addons', '[build] A comma separated list of paths to additional non-core gumby module files.')
+	.alias('addons', 'add-ons')
+	.alias('addons', 'a')
 
-	.describe('extraFiles', '[build] A comma separated list of paths to additional non-module files.')
-	.alias('extraFiles', 'f')
+	.describe('files', '[build] A comma separated list of paths to additional non-module files.')
+	.alias('files', 'f')
 
 	.describe('buildSourceMap', '[build] Boolean flag, pass it to build the sourcemap.')
 	.boolean('buildSourceMap')
@@ -59,8 +60,8 @@ switch (argv._[0]) {
 			gumbyPath: getArg('gumbyPath', 'build'),
 			outPath: getArg('outPath', 'build'),
 			modules: getArg('modules', 'build', 'array'),
-			extraModules: getArg('extraModules', 'build', 'array'),
-			extraFiles: getArg('extraFiles', 'build', 'array'),
+			addons: getArg('addons', 'build', 'array'),
+			files: getArg('files', 'build', 'array'),
 			includeSourceMap: getArg('buildSourceMap', 'build')
 		};
 
