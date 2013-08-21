@@ -62,7 +62,7 @@ switch (argv._[0]) {
 			modules: getArg('modules', 'build', 'array'),
 			addons: getArg('addons', 'build', 'array'),
 			files: getArg('files', 'build', 'array'),
-			includeSourceMap: getArg('buildSourceMap', 'build')
+			buildSourceMap: getArg('buildSourceMap', 'build')
 		};
 
 		Claymate.build(buildOpts);
