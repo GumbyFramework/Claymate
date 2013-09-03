@@ -44,6 +44,10 @@ var argv = require('optimist')
 	.describe('gumbyPath', '[build] Which path to look for gumby in.')
 	.alias('gumbyPath', 'g')
 
+	.describe('edge', '[install] Use the latest development version of gumby instead of the current release.')
+	.boolean('edge')
+	.alias('edge', 'e')
+
 	// Generic
 	.describe('quiet', '[build,install] Supresses non-error messages.')
 	.boolean('quiet')
@@ -77,6 +81,7 @@ switch (argv._[0]) {
 	case 'install':
 
 		var installOpts = {
+			edge: getArg('edge', 'install'),
 			quiet: getArg('quiet', 'install')
 		};
 
