@@ -119,6 +119,14 @@ The end result of running this subcommand is a directory structure like the foll
 
 > **Note:** If you wish to install gumby as a bower module without the extra processing, all you have to do is `$ bower install gumby`.
 
+#### edge
+
+`--edge`, `-e`
+
+If you want the latest non-released gumby (develop branch), use this.
+
+> **Defaults:** Off.
+
 #### quiet
 
 `--quiet, -q`
