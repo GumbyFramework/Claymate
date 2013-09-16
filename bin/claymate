@@ -12,6 +12,7 @@ var usage =
 \n\
 Use one of the following subcommands:\n\
   build - Concatenate and minify the core gumby scripts.\n\
+  install - Creates a scaffold for your application with the reccomended setup.\n\
 \n\
 The options below will have which subcommand(s) they apply to in brackets\n\
 before the description.\n\
@@ -26,8 +27,12 @@ var argv = require('optimist')
 	.describe('modules', '[build] Which modules to include in the build, comma separated. If omitted, defaults to all modules.')
 	.alias('modules', 'm')
 
-	.describe('extraModules', '[build] A comma separated list of paths to additional non-core gumby module files.')
-	.alias('extraModules', 'e')
+	.describe('addons', '[build] A comma separated list of paths to additional non-core gumby module files.')
+	.alias('addons', 'add-ons')
+	.alias('addons', 'a')
+
+	.describe('files', '[build] A comma separated list of paths to additional non-module files.')
+	.alias('files', 'f')
 
 	.describe('buildSourceMap', '[build] Boolean flag, pass it to build the sourcemap.')
 	.boolean('buildSourceMap')
@@ -36,9 +41,17 @@ var argv = require('optimist')
 	.describe('outPath', '[build] Where to write the minified and sourcemap files. If omitted, defaults to current directory.')
 	.alias('outPath', 'o')
 
-	// Generic
 	.describe('gumbyPath', '[build] Which path to look for gumby in.')
 	.alias('gumbyPath', 'g')
+
+	.describe('edge', '[install] Use the latest development version of gumby instead of the current release.')
+	.boolean('edge')
+	.alias('edge', 'e')
+
+	// Generic
+	.describe('quiet', '[build,install] Supresses non-error messages.')
+	.boolean('quiet')
+	.alias('quiet', 'q')
 
 	// Require a subcommand at least
 	.demand(1)
@@ -55,13 +68,27 @@ switch (argv._[0]) {
 			gumbyPath: getArg('gumbyPath', 'build'),
 			outPath: getArg('outPath', 'build'),
 			modules: getArg('modules', 'build', 'array'),
-			extraModules: getArg('extraModules', 'build', 'array'),
-			includeSourceMap: getArg('buildSourceMap', 'build')
+			addons: getArg('addons', 'build', 'array'),
+			files: getArg('files', 'build', 'array'),
+			buildSourceMap: getArg('buildSourceMap', 'build'),
+			quiet: getArg('quiet', 'build')
 		};
 
 		Claymate.build(buildOpts);
 
 		break;
+
+	case 'install':
+
+		var installOpts = {
+			edge: getArg('edge', 'install'),
+			quiet: getArg('quiet', 'install')
+		};
+
+		Claymate.install(installOpts);
+
+		break;
+
 }
 
 /**
