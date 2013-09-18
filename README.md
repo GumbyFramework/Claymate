@@ -37,6 +37,8 @@ As time goes on, we will add more subcommands to accomplish tasks we notice are 
 
 ## Getting Claymate
 
+Before begining you will need [nodejs](http://nodejs.org/) version 0.10.x or higher. Installation and update instructions vary widely depending on what platform you're using and if you want to manage nodejs versions with something like [nvm](https://github.com/creationix/nvm). As such we leave the task to the reader.
+
 Claymate exists as an [npm](https://npmjs.org/) module, so we can easily use that to install it. We reccomend you install claymate globally to save the trouble of specifying the path to claymate every time you invoke it.
 
 	$ npm install claymate
