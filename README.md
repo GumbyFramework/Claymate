@@ -37,11 +37,15 @@ As time goes on, we will add more subcommands to accomplish tasks we notice are 
 
 ## Getting Claymate
 
+Before begining you will need [nodejs](http://nodejs.org/) version 0.8.0 or higher. Lower versions of nodejs have not been tested. Installation and update instructions for nodejs vary widely depending on what platform you're using and if you want to manage nodejs versions with something like [nvm](https://github.com/creationix/nvm). As such we leave the task to the reader.
+
+> Note: A bug exists with nodejs v0.11.7 in one of claymate's dependencies (uglify-js). Until such time as that bug is fixed in uglify-js, you will not be able to use the 'build' command in that version of nodejs.
+
 Claymate exists as an [npm](https://npmjs.org/) module, so we can easily use that to install it. We reccomend you install claymate globally to save the trouble of specifying the path to claymate every time you invoke it.
 
 	$ npm install claymate
 
-> Sudo is only required in cases where the shared node_modules directory for your system is owned by root. You'll notice when it throws a whole bunch of gobbledy-gook at you with stuff like ENOACCESS and complaints about permissions. A better approach to solving the problem than sudo'ing everything would be to set your npm prefix to a directory you own in $HOME, then adding that to your $PATH.
+> Sudo is only required in cases where the shared node_modules directory for your system is owned by root. You'll notice when it throws a whole bunch of gobbledy-gook at you with stuff like ENOACCESS and complaints about permissions. A better approach to solving the problem than sudo'ing everything would be to set your npm prefix to a directory you own in $HOME, then adding that to your $PATH. Or more simply, use [nvm](https://github.com/creationix/nvm).
 
 
 ## How Configuration Works
