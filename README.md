@@ -45,7 +45,7 @@ Claymate exists as an [npm](https://npmjs.org/) module, so we can easily use tha
 
 	$ npm install claymate
 
-> Sudo is only required in cases where the shared node_modules directory for your system is owned by root. You'll notice when it throws a whole bunch of gobbledy-gook at you with stuff like ENOACCESS and complaints about permissions. A better approach to solving the problem than sudo'ing everything would be to set your npm prefix to a directory you own in $HOME, then adding that to your $PATH.
+> Sudo is only required in cases where the shared node_modules directory for your system is owned by root. You'll notice when it throws a whole bunch of gobbledy-gook at you with stuff like ENOACCESS and complaints about permissions. A better approach to solving the problem than sudo'ing everything would be to set your npm prefix to a directory you own in $HOME, then adding that to your $PATH. Or more simply, use [nvm](https://github.com/creationix/nvm).
 
 
 ## How Configuration Works
