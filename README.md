@@ -37,7 +37,7 @@ As time goes on, we will add more subcommands to accomplish tasks we notice are 
 
 ## Getting Claymate
 
-Before begining you will need [nodejs](http://nodejs.org/) version 0.10.x or higher. Installation and update instructions vary widely depending on what platform you're using and if you want to manage nodejs versions with something like [nvm](https://github.com/creationix/nvm). As such we leave the task to the reader.
+Before begining you will need [nodejs](http://nodejs.org/) version 0.8.0 or higher. Installation and update instructions vary widely depending on what platform you're using and if you want to manage nodejs versions with something like [nvm](https://github.com/creationix/nvm). As such we leave the task to the reader.
 
 > Note: A bug exists with nodejs v0.11.7 in one of claymate's dependencies (uglify-js). Until such time as that bug is fixed in uglify-js, you will not be able to use the 'build' command in that version of nodejs.
 
