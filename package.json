@@ -1,6 +1,6 @@
 {
   "name": "claymate",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Official helper scripts for the Gumby responsive framework.",
   "main": "lib/claymate.js",
   "bin": "bin/claymate",
