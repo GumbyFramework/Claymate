@@ -5,6 +5,7 @@
 
 // Grab claymate library.
 var Claymate = require('../lib/claymate.js'),
+	Optimist = require('optimist'),
 	JSONConfig = Claymate.getJSONConfig();
 
 var usage =
@@ -20,7 +21,7 @@ before the description.\n\
 ";
 
 // Set up argument parsing
-var argv = require('optimist')
+var Optimist = Optimist
 	// Usage information
 	.usage(usage)
 
@@ -54,12 +55,19 @@ var argv = require('optimist')
 	.boolean('quiet')
 	.alias('quiet', 'q')
 
-	// Require a subcommand at least
-	.demand(1)
+	.describe('version', 'Show this program\'s version and exit.')
+	.boolean('quiet')
+	.alias('version', 'v')
 
 	// That's it!
-	.wrap(80)
-	.argv;
+	.wrap(80),
+	argv = Optimist.argv;
+
+// Look for version request.
+if (argv.version) {
+	console.log(Claymate.getClaymateVersion());
+	return 0;
+}
 
 // Handle the subcommands
 switch (argv._[0]) {
@@ -90,14 +98,9 @@ switch (argv._[0]) {
 
 		break;
 
-	case 'version':
+	default:
 
-		var fs = require('fs'),
-			path = require('path'),
-			pkgJSONPath = path.join(__dirname, '../package.json'),
-			pkgJSON = JSON.parse(fs.readFileSync(pkgJSONPath, 'utf8'));
-
-		console.log(pkgJSON.version);
+		console.log(Optimist.help());
 
 		break;
 
