@@ -13,6 +13,7 @@ var usage =
 Use one of the following subcommands:\n\
   build - Concatenate and minify the core gumby scripts.\n\
   install - Creates a scaffold for your application with the reccomended setup.\n\
+  version - Shows this program's version number and exits.\n\
 \n\
 The options below will have which subcommand(s) they apply to in brackets\n\
 before the description.\n\
@@ -86,6 +87,17 @@ switch (argv._[0]) {
 		};
 
 		Claymate.install(installOpts);
+
+		break;
+
+	case 'version':
+
+		var fs = require('fs'),
+			path = require('path'),
+			pkgJSONPath = path.join(__dirname, '../package.json'),
+			pkgJSON = JSON.parse(fs.readFileSync(pkgJSONPath, 'utf8'));
+
+		console.log(pkgJSON.version);
 
 		break;
 
