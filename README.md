@@ -23,7 +23,7 @@ For example, we think you'll agree that typing this:
 	cp bower_components/gumby/sass/_fonts.scss sass/_font.scss && \
 	cp bower_components/gumby/sass/_custom.scss sass/_custom.scss && \
 	cp bower_components/gumby/config.rb . && \
-	cp -r bower_componenets/gumby/fonts/icons fonts/ && \
+	cp -r bower_components/gumby/fonts/icons fonts/ && \
 	compass compile && \
 	echo '{ "build": { "gumbyPath": "bower_components/gumby", "outPath": "js" } }' > gumby.json
 
